@@ -8,7 +8,7 @@ class EbayRPSGameControlClassTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
 
-	require_once('bootstrap');
+	require_once('bootstrap.php');
 
 	// create a router object
 	require_once(bootstrapForTests::getBasePath()."/src/routerClass.php");
