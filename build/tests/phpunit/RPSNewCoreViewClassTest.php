@@ -11,8 +11,7 @@ class RPSNewCoreViewClassTest extends PHPUnit_Framework_TestCase {
         $this->listOfViews = array("index", "login", "register");
         $this->viewVars = array(
             "view"=>"index",
-            "pageVars"=>array()
-        );
+            "pageVars"=>array() );
         $this->executeViewStoreTheOutput();
     }
 
