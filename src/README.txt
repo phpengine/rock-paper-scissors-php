@@ -1,6 +1,18 @@
-A Readme file for Ebay GC Rock, Paper, Scissors Application
+A Readme file for Ebay Code Practice
 ------------
 
-Requires Javascript to be running on browser. JQuery would have been nice :)
+THESE TODOS COVER ALL PROJECT
+@DONE Namespace all classes - commented out by replace in path as autoloader cant find classes
+@DONE Headers on all files
+@todo TESTING!!
+@DONE check trailing whitespace on files
 
-Might have been nice to create an extra page for players choice so human players cant see each others choice before playing
+individual done ones
+
+------
+Jenkins
+PMD
+CS
+DEPEND
+PHPUNIT
+Cucumber

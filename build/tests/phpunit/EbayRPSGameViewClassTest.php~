@@ -9,16 +9,18 @@ class EbayRPSGameViewClassTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
 
+	require_once('bootstrap');
+
 	// create a router object
-	require_once("../public_html/routerClass.php");
+	require_once(bootstrapForTests::getBasePath()."/src/routerClass.php");
 	$this->route = new EbayRPSGameRouterClass();
 
 	// create a view object
-	require_once("../public_html/controlclass.php");
+	require_once(bootstrapForTests::getBasePath()."/src/controlclass.php");
 	$this->control = new EbayRPSGameControlClass();
 	
 	// create a view object
-	require_once("../public_html/viewclass.php");
+	require_once(bootstrapForTests::getBasePath()."/src/viewclass.php");
 	$this->view = new EbayRPSGameViewClass() ;
 
 	$route = $this->route->run();

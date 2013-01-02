@@ -14,8 +14,8 @@ class phpMDConsoleExecutor {
 
     private function performTests(){
         $basePath = str_replace('build/config/phpmd', "", dirname(__FILE__));
-        $command = 'phpmd '.$basePath.'src/ text '.dirname(__FILE__).'/rules/standard.xml ';
-        $command .= ' --exclude '.$basePath.'src/Core/View.php';
+        $command = 'phpmd '.$basePath.'src-orig/ text '.dirname(__FILE__).'/rules/standard.xml ';
+        $command .= ' --exclude '.$basePath.'src-orig/Core/View.php';
         self::executeAndOutput($command); }
 
     private static function executeAndOutput($command) {

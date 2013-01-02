@@ -1,9 +1,16 @@
 <?php
 
+Use \Core\autoLoader;
+
+$bootStrap = new bootStrapForTests();
+$bootStrap->launch();
+
 class bootStrapForTests {
 
-    public static function getBasePath() {
-	return str_replace('build/tests/phpunit','',dirname(__FILE__)) ; }
-
+    public function launch() {
+        require_once(dirname(__FILE__) . "/../../../src/AutoLoad.php");
+        $autoLoader = new autoLoader();
+        $autoLoader->launch();
+    }
 
 }
