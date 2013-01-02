@@ -61,6 +61,23 @@ class RPSNewControllerGameClassTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue( $returnRay["view"]=="gameIntro" );
     }
 
+    public function testExecuteReturnsAnArrayWithGameCompleteWhenActionIsChoosePlayersAndRunIsSet() {
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "choosePlayers";
+        $control = new \Controller\Game();
+        $_REQUEST["run"] = "run";
+        $_REQUEST["p1type"] = "human";
+        $_REQUEST["p1choice"] = "rock";
+        $_REQUEST["p2type"] = "human";
+        $_REQUEST["p2choice"] = "scissors";
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( array_key_exists("type", $returnRay) );
+        $this->assertTrue( $returnRay["type"]=="view" );
+        $this->assertTrue( array_key_exists("view", $returnRay) );
+        $this->assertTrue( $returnRay["view"]=="gameComplete" );
+    }
+
     public function testGetRandomPlayerChoiceReturnsValue() {
         $control = new \Controller\Game();
         $reflector = new ReflectionMethod($control, "getRandomPlayerChoice");
