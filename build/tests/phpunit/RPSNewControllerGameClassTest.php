@@ -37,6 +37,30 @@ class RPSNewControllerGameClassTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue( $returnRay["view"]=="gameIntro" );
     }
 
+    public function testExecuteReturnsAnArrayWithGameChoosePlayersViewWhenActionIsGameChoosePlayers() {
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "choosePlayers";
+        $control = new \Controller\Game();
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( array_key_exists("type", $returnRay) );
+        $this->assertTrue( $returnRay["type"]=="view" );
+        $this->assertTrue( array_key_exists("view", $returnRay) );
+        $this->assertTrue( $returnRay["view"]=="gameChoosePlayers" );
+    }
+
+    public function testExecuteReturnsAnArrayWithGameIntroWhenActionIsNotHomeOrChoosePlayers() {
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "else";
+        $control = new \Controller\Game();
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( array_key_exists("type", $returnRay) );
+        $this->assertTrue( $returnRay["type"]=="view" );
+        $this->assertTrue( array_key_exists("view", $returnRay) );
+        $this->assertTrue( $returnRay["view"]=="gameIntro" );
+    }
+
     public function testGetRandomPlayerChoiceReturnsValue() {
         $control = new \Controller\Game();
         $reflector = new ReflectionMethod($control, "getRandomPlayerChoice");
