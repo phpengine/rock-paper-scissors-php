@@ -1,6 +1,6 @@
 <?php
 
-class EbayCodePracticeControllerBaseClassTest extends PHPUnit_Framework_TestCase {
+class RPSNewControllerBaseClassTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
         require_once("bootstrap.php");

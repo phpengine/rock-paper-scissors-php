@@ -43,10 +43,6 @@
                 </div> <!-- end pageRow div-->
 
                 <div class="pageRow">
-                    <?= $this->viewHelpers->renderMessages($pageVars); ?>
-                </div> <!-- end pageRow div-->
-
-                <div class="pageRow">
                     <?php echo $templateData; ?>
                 </div> <!-- end pageRow div-->
 

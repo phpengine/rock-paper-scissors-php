@@ -5,6 +5,7 @@ Namespace Controller ;
 class Game extends Base {
 
     public function execute($pageVars) {
+        var_dump($pageVars);
         if ( $pageVars["route"]["action"] == "home" ) {
             return array ("type"=>"view", "view"=>"gameIntro", "pageVars"=>$this->content); }
         if ( $pageVars["route"]["action"] == "choosePlayers" ) {
@@ -14,6 +15,7 @@ class Game extends Base {
                 $this->processGame();
                 return array ("type"=>"view", "view"=>"gameComplete", "pageVars"=>$this->content); }
             return array ("type"=>"view", "view"=>"gameChoosePlayers", "pageVars"=>$this->content); }
+        echo "im here";
         return array ("type"=>"view", "view"=>"gameIntro", "pageVars"=>$this->content);
     }
 

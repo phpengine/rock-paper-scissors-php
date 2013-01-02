@@ -4,12 +4,6 @@ Namespace Core;
 
 class View {
 
-    private $viewHelpers;
-
-    public function __construct(){
-        $this->viewHelpers = new ViewHelpers();
-    }
-
     public function executeView($view, Array $viewVars) {
         $viewVars["layout"] = (isset($viewVars["layout"])) ? $viewVars["layout"] : "default" ;
         $templateData = $this->loadTemplate ($view, $viewVars) ;

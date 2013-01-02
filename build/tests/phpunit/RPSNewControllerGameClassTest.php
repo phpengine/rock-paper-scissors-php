@@ -1,10 +1,40 @@
 <?php
 
 
-class EbayRPSGameControlClassTest extends PHPUnit_Framework_TestCase {
+class RPSNewControllerGameClassTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
         require_once('bootstrap.php');
+    }
+
+    public function testExecuteReturnsAValue() {
+        $control = new \Controller\Game();
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "home";
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( !is_null($returnRay) );
+    }
+
+    public function testExecuteReturnsAnArray() {
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "home";
+        $control = new \Controller\Game();
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( is_array($returnRay) );
+    }
+
+    public function testExecuteReturnsAnArrayWithGameIntroViewWhenActionIsHome() {
+        $mockPageVars = array();
+        $mockPageVars["route"] = array();
+        $mockPageVars["route"]["action"] = "home";
+        $control = new \Controller\Game();
+        $returnRay = $control->execute($mockPageVars);
+        $this->assertTrue( array_key_exists("type", $returnRay) );
+        $this->assertTrue( $returnRay["type"]=="view" );
+        $this->assertTrue( array_key_exists("view", $returnRay) );
+        $this->assertTrue( $returnRay["view"]=="gameIntro" );
     }
 
     public function testGetRandomPlayerChoiceReturnsValue() {

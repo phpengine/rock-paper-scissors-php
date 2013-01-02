@@ -7,7 +7,9 @@ class Control {
     public function executeControl($control, $pageVars) {
         $className = '\\Controller\\'.ucfirst($control);
         $controlObject = new $className;
-        return $controlObject->execute($pageVars);
+        $executionResult = $controlObject->execute($pageVars);
+        var_dump ( "x res", $executionResult);
+        return $executionResult;
     }
 
 }
