@@ -18,7 +18,7 @@ Capybara.configure do |config|
   host = Proc.new do |env|
     case env.to_sym
       when :development
-        ENV["APPLICATION_HOST"] || "http://www.rps-new.tld"
+        ENV["APPLICATION_HOST"] || "http://www.rps-php.tld"
       when :test
 
       when :production
